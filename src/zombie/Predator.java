@@ -16,5 +16,9 @@ public class Predator extends Character implements IZombie{
 	public void attack(ISurvivor survivor) {
 		survivor.decreaseHealth(10);
 	}
+        
+        public String getIZombie(){
+            return "Predator";
+        }
 	
 }

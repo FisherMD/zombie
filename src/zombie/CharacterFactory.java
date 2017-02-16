@@ -31,12 +31,14 @@ public class CharacterFactory implements ICharacterFactory{
       case "CommonInf"  : return new CommonInf();
       case "Tank"     	: return new Tank();
       case "Predator"	: return new Predator();
-      case "Child"		: return new Child();
+      case "Child"	: return new Child();
       case "Teacher"	: return new Teacher();
       case "Soldier"	: return new Soldier();
       case "Student"	: return new Student();
     }
     return null;
   }
+  
+  
   
 }

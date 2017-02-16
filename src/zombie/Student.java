@@ -12,5 +12,7 @@ public class Student extends Character implements ISurvivor{
 	public void attack(IZombie zombie) {
 		zombie.decreaseHealth(35);
 	}
-
+         public String getISurvivor(){
+            return "Student";
+        }
 }

@@ -16,4 +16,5 @@ public interface IZombie extends ICharacter{
 	 * @param survivor 
 	 */
 	public void attack(ISurvivor survivor);
+        public String getIZombie();
 }

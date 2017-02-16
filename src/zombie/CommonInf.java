@@ -16,5 +16,8 @@ public class CommonInf extends Character implements IZombie{
 	public void attack(ISurvivor survivor) {
 		survivor.decreaseHealth(5);
 	}
+        public String getIZombie(){
+            return "Common Infected";
+        }
 	
 }
