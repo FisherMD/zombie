@@ -75,15 +75,7 @@ public class Main {
         System.out.println("We have " + survivors.length + " survivors trying to make it to safety.");
         System.out.println("But there are " + zombies.length + " zombies waiting for them.");
 
-        //list all survivor types
-        for (int i = 0; i < survivors.length; i++) {
-            System.out.println(survivors[i].getISurvivor());
-        }
-        //list all zombie types
-        for (int i = 0; i < zombies.length; i++) {
-            System.out.println(zombies[i].getIZombie());
-        }
-
+        
         do {
 
             //each survivor attacks every zombie
@@ -91,6 +83,10 @@ public class Main {
                 for (int j = 0; j < zombies.length; j++) {
                     if (survivors[i].isAlive()) {
                         survivors[i].attack(zombies[j]);
+                    }
+                    if(!zombies[j].isAlive()){
+                        System.out.println(survivors[i].getISurvivor() +  " " + i + " killed " + zombies[j].getIZombie() + " " + j);
+                        
                     }
                 }
             }
@@ -100,6 +96,10 @@ public class Main {
                 for (int j = 0; j < survivors.length; j++) {
                     if (zombies[i].isAlive()) {
                         zombies[i].attack(survivors[j]);
+                    }
+                    if(!survivors[j].isAlive()){
+                        System.out.println(zombies[i].getIZombie() + " " + i + " killed " + survivors[j].getISurvivor() + " " + j);
+                        
                     }
                 }
             }
