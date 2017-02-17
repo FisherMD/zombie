@@ -13,6 +13,9 @@ public class Main {
 
     private static final ICharacterFactory factory = CharacterFactory.instance;
 
+    //initialize the number of characters
+    int CommonInf, Tank, Predator = 0;
+    
     public static IZombie[] randomZombies() {
         int numZombies = (int) (Math.random() * 10);
         IZombie[] zombies = new IZombie[numZombies];
@@ -21,6 +24,7 @@ public class Main {
             switch (zombieType) {
                 case 0:
                     zombies[i] = (IZombie) factory.make("CommonInf");
+                    
                     break;
                 case 1:
                     zombies[i] = (IZombie) factory.make("Tank");
@@ -83,9 +87,9 @@ public class Main {
                 for (int j = 0; j < zombies.length; j++) {
                     if (survivors[i].isAlive()) {
                         survivors[i].attack(zombies[j]);
-                    }
-                    if(!zombies[j].isAlive()){
-                        System.out.println(survivors[i].getISurvivor() +  " " + i + " killed " + zombies[j].getIZombie() + " " + j);
+                    
+                        if(!zombies[j].isAlive())
+                            System.out.println(survivors[i].getISurvivor() + " killed " + zombies[j].getIZombie() );
                         
                     }
                 }
@@ -98,7 +102,7 @@ public class Main {
                         zombies[i].attack(survivors[j]);
                     }
                     if(!survivors[j].isAlive()){
-                        System.out.println(zombies[i].getIZombie() + " " + i + " killed " + survivors[j].getISurvivor() + " " + j);
+                        System.out.println(zombies[i].getIZombie() + " " + " killed " + survivors[j].getISurvivor());
                         
                     }
                 }
