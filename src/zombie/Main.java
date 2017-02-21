@@ -21,7 +21,7 @@ public class Main {
         int numZombies = (int) (Math.random() * 10);
         IZombie[] zombies = new IZombie[numZombies];
         for (int i = 0; i < zombies.length; i++) {
-            int zombieType = (int) (Math.random() * 4);
+            int zombieType = (int) (Math.random() * 5);
             switch (zombieType) {
                 case 0:
                     zombies[i] = (IZombie) factory.make("CommonInf");
@@ -36,7 +36,10 @@ public class Main {
                 case 3:
                     zombies[i] = (IZombie) factory.make("ZombieMonkey");
                     break;
-            }
+		case 4:
+		    zombies[i] = (IZombie) factory.make("Seeker");
+	            break;		    
+	    }
         }
         return zombies;
     }
@@ -86,7 +89,7 @@ public class Main {
         ISurvivor[] survivors = randomSurvivors();
 
         // Store number of each type of zombie
-        int[] numZTypes = new int[4];
+        int[] numZTypes = new int[5];
 	
         //Count number of each zombie, store in array
         for(int i=0;i<zombies.length;i++){
@@ -98,13 +101,16 @@ public class Main {
 			    numZTypes[2]++;
                     }else if(zombies[i]instanceof ZombieMonkey){
 			    numZTypes[3]++;
+		    }else if(zombies[i]instanceof Seeker){
+			    numZTypes[4]++;		
 		    }
-        }
+	}
         
         System.out.println("We have " + survivors.length + " survivors trying to make it to safety.");
         System.out.println("But there are " + zombies.length + " zombies waiting for them.");
-        System.out.println(numZTypes[0] + " Common Infected, " + numZTypes[1] + " Predator(s), " + numZTypes[2] + " Tank(s), and "+ numZTypes[3] + " Zombie Monkey(ies)");
-        
+        System.out.print(numZTypes[0] + " Common Infected, " + numZTypes[1] + " Predator(s), " + numZTypes[2] + " Tank(s), "+ numZTypes[3] + " Zombie Monkey(ies)");
+        System.out.println(", and " + numZTypes[4] + " Seeker(s).");
+	    
         //Until either all zombies or all survivors are dead, have them attack each other
         do {
 
