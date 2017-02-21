@@ -2,7 +2,7 @@ package intf;
 
 public interface ICharacterFactory{
  
-  //Make a character. If type is soldier, return a Solider object.
+  //Make a character, return that type character
   public ICharacter make(String type);
 
 }
