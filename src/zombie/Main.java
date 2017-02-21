@@ -21,7 +21,7 @@ public class Main {
         int numZombies = (int) (Math.random() * 10);
         IZombie[] zombies = new IZombie[numZombies];
         for (int i = 0; i < zombies.length; i++) {
-            int zombieType = (int) (Math.random() * 3);
+            int zombieType = (int) (Math.random() * 4);
             switch (zombieType) {
                 case 0:
                     zombies[i] = (IZombie) factory.make("CommonInf");
@@ -32,6 +32,9 @@ public class Main {
                     break;
                 case 2:
                     zombies[i] = (IZombie) factory.make("Predator");
+                    break;
+                case 3:
+                    zombies[i] = (IZombie) factory.make("ZombieMonkey");
                     break;
             }
         }
@@ -88,14 +91,16 @@ public class Main {
 			    numZTypes[0]++;
 		    }else if(zombies[i]instanceof Predator){
 			    numZTypes[1]++;
-		    }else{
+		    }else if(zombies[i]instanceof Tank){
 			    numZTypes[2]++;
+                    }else if(zombies[i]instanceof ZombieMonkey){
+			    numZTypes[3]++;
 		    }
         }
         
         System.out.println("We have " + survivors.length + " survivors trying to make it to safety.");
         System.out.println("But there are " + zombies.length + " zombies waiting for them.");
-        System.out.println(numZTypes[0] + "Common Infected, " + numZTypes[1] + "Predator(s), " + numZTypes[2] + "Tank(s)");
+        System.out.println(numZTypes[0] + "Common Infected, " + numZTypes[1] + "Predator(s), " + numZTypes[2] + "Tank(s)"+ numZTypes[3] + "Zombie Monkey(ies)");
         
         //Until either all zombies or all survivors are dead, have them attack each other
         do {
