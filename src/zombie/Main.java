@@ -118,11 +118,13 @@ public class Main {
             for (int i = 0; i < survivors.length; i++) {
                 for (int j = 0; j < zombies.length; j++) {
                     if (survivors[i].isAlive()) {
-                        survivors[i].attack(zombies[j]);
+                        if(zombies[j].isAlive()){
+                            survivors[i].attack(zombies[j]);
                     
-                        if(!zombies[j].isAlive())
-                            System.out.println(survivors[i].getISurvivor() + " killed " + zombies[j].getIZombie() );
-                        
+                            if(!zombies[j].isAlive()){
+                                System.out.println(survivors[i].getISurvivor() + " killed " + zombies[j].getIZombie() );
+                            }
+                        }
                     }
                 }
             }
@@ -131,11 +133,14 @@ public class Main {
             for (int i = 0; i < zombies.length; i++) {
                 for (int j = 0; j < survivors.length; j++) {
                     if (zombies[i].isAlive()) {
-                        zombies[i].attack(survivors[j]);
-                    }
-                    if(!survivors[j].isAlive()){
-                        System.out.println(zombies[i].getIZombie() + " " + " killed " + survivors[j].getISurvivor());
+                        if(survivors[j].isAlive()){
+                            zombies[i].attack(survivors[j]);
+                    
+                            if(!survivors[j].isAlive()){
+                                System.out.println(zombies[i].getIZombie() + " " + " killed " + survivors[j].getISurvivor());
                         
+                            }
+                        }
                     }
                 }
             }
