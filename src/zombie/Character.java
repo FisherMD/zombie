@@ -17,7 +17,7 @@ public abstract class Character implements ICharacter{
 
 	@Override
 	public boolean isAlive() {
-		return (health > 0);
+		return (health >= 0);
 	}
 	
 	

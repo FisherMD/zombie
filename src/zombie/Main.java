@@ -46,7 +46,7 @@ public class Main {
         int numZombies = (int) (Math.random() * 20);
         ISurvivor[] survivors = new ISurvivor[numZombies];
         for (int i = 0; i < survivors.length; i++) {
-            int type = (int) (Math.random() * 4);
+            int type = (int) (Math.random() * 5);
             switch (type) {
                 case 0:
                     survivors[i] = (ISurvivor) factory.make("Soldier");
@@ -59,6 +59,9 @@ public class Main {
                     break;
                 case 3:
                     survivors[i] = (ISurvivor) factory.make("Child");
+                    break;
+                case 4:
+                    survivors[i] = (ISurvivor) factory.make("Dog");
                     break;
             }
         }
@@ -83,7 +86,7 @@ public class Main {
         ISurvivor[] survivors = randomSurvivors();
 
         // Store number of each type of zombie
-        int numZTypes = new int[3];
+        int[] numZTypes = new int[4];
 	
         //Count number of each zombie, store in array
         for(int i=0;i<zombies.length;i++){
@@ -100,7 +103,7 @@ public class Main {
         
         System.out.println("We have " + survivors.length + " survivors trying to make it to safety.");
         System.out.println("But there are " + zombies.length + " zombies waiting for them.");
-        System.out.println(numZTypes[0] + "Common Infected, " + numZTypes[1] + "Predator(s), " + numZTypes[2] + "Tank(s)"+ numZTypes[3] + "Zombie Monkey(ies)");
+        System.out.println(numZTypes[0] + " Common Infected, " + numZTypes[1] + " Predator(s), " + numZTypes[2] + " Tank(s), and "+ numZTypes[3] + " Zombie Monkey(ies)");
         
         //Until either all zombies or all survivors are dead, have them attack each other
         do {

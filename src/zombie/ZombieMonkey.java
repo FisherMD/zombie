@@ -27,6 +27,7 @@ public class ZombieMonkey extends Character implements IZombie{
 		survivor.decreaseHealth(5);
 	}
         
+        @Override
         public String getIZombie(){
             return "ZombieMonkey";
         }
