@@ -16,6 +16,7 @@ public class Main {
     //initialize the number of characters
     int CommonInf, Tank, Predator = 0;
     
+    /* Create array of random zombies */
     public static IZombie[] randomZombies() {
         int numZombies = (int) (Math.random() * 10);
         IZombie[] zombies = new IZombie[numZombies];
@@ -37,6 +38,7 @@ public class Main {
         return zombies;
     }
 
+    /*  Created a array of random survivors */
     public static ISurvivor[] randomSurvivors() {
         int numZombies = (int) (Math.random() * 20);
         ISurvivor[] survivors = new ISurvivor[numZombies];
@@ -60,6 +62,7 @@ public class Main {
         return survivors;
     }
 
+    /* Checks if all zombies and all survivors are dead  */
     public static boolean allDead(ICharacter[] characters) {
         boolean allDead = true;
         for (int i = 0; i < characters.length; i++) {
@@ -76,10 +79,25 @@ public class Main {
         IZombie[] zombies = randomZombies();
         ISurvivor[] survivors = randomSurvivors();
 
+        // Store number of each type of zombie
+        int numZTypes = new int[3];
+	
+        //Count number of each zombie, store in array
+        for(int i=0;i<zombies.length;i++){
+		    if(zombies[i]instanceof CommonInf){
+			    numZTypes[0]++;
+		    }else if(zombies[i]instanceof Predator){
+			    numZTypes[1]++;
+		    }else{
+			    numZTypes[2]++;
+		    }
+        }
+        
         System.out.println("We have " + survivors.length + " survivors trying to make it to safety.");
         System.out.println("But there are " + zombies.length + " zombies waiting for them.");
-
+        System.out.println(numZTypes[0] + "Common Infected, " + numZTypes[1] + "Predator(s), " + numZTypes[2] + "Tank(s)");
         
+        //Until either all zombies or all survivors are dead, have them attack each other
         do {
 
             //each survivor attacks every zombie
