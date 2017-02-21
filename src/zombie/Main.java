@@ -93,17 +93,17 @@ public class Main {
 	
         //Count number of each zombie, store in array
         for(int i=0;i<zombies.length;i++){
-		    if(zombies[i]instanceof CommonInf){
-			    numZTypes[0]++;
-		    }else if(zombies[i]instanceof Predator){
-			    numZTypes[1]++;
-		    }else if(zombies[i]instanceof Tank){
-			    numZTypes[2]++;
-                    }else if(zombies[i]instanceof ZombieMonkey){
-			    numZTypes[3]++;
-		    }else if(zombies[i]instanceof Seeker){
-			    numZTypes[4]++;		
-		    }
+            if(zombies[i]instanceof CommonInf){
+                    numZTypes[0]++;
+            }else if(zombies[i]instanceof Predator){
+                    numZTypes[1]++;
+            }else if(zombies[i]instanceof Tank){
+                    numZTypes[2]++;
+            }else if(zombies[i]instanceof ZombieMonkey){
+                    numZTypes[3]++;
+            }else if(zombies[i]instanceof Seeker){
+                    numZTypes[4]++;		
+            }
 	}
         
         System.out.println("We have " + survivors.length + " survivors trying to make it to safety.");
