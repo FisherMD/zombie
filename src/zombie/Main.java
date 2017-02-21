@@ -114,13 +114,13 @@ public class Main {
         //Until either all zombies or all survivors are dead, have them attack each other
         do {
 
-            //each survivor attacks every zombie
+            //if alive, each survivor attacks every living zombie
             for (int i = 0; i < survivors.length; i++) {
-                for (int j = 0; j < zombies.length; j++) {
-                    if (survivors[i].isAlive()) {
+                if (survivors[i].isAlive()){
+                    for (int j = 0; j < zombies.length; j++) {
                         if(zombies[j].isAlive()){
+                            
                             survivors[i].attack(zombies[j]);
-                    
                             if(!zombies[j].isAlive()){
                                 System.out.println(survivors[i].getISurvivor() + " killed " + zombies[j].getIZombie() );
                             }
@@ -129,16 +129,15 @@ public class Main {
                 }
             }
 
-            //each zombie attacks every survivor
+            //if alive, each zombie attacks every alive survivor
             for (int i = 0; i < zombies.length; i++) {
-                for (int j = 0; j < survivors.length; j++) {
-                    if (zombies[i].isAlive()) {
+                if (zombies[i].isAlive()) {
+                    for (int j = 0; j < survivors.length; j++) {
                         if(survivors[j].isAlive()){
+                            
                             zombies[i].attack(survivors[j]);
-                    
                             if(!survivors[j].isAlive()){
                                 System.out.println(zombies[i].getIZombie() + " " + " killed " + survivors[j].getISurvivor());
-                        
                             }
                         }
                     }
@@ -159,5 +158,4 @@ public class Main {
             System.out.println("It seems " + count + " have made it to safety.");
         }
     }
-
 }
