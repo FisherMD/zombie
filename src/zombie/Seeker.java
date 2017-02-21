@@ -1,7 +1,7 @@
 package zombie;  
  
-import intf.IZombie; 
-package zombie;
+import intf.IZombie;
+import intf.ISurvivor;
 
 import intf.IZombie;
 import intf.ISurvivor;
@@ -29,7 +29,7 @@ public class Seeker extends Character implements IZombie{
 	public void attack(ISurvivor survivor) {
 		survivor.decreaseHealth(15);
 	}
-        
+        @Override
         public String getIZombie(){
             return "Seeker";
         }
