@@ -23,7 +23,7 @@ public class DemonZombie extends Character implements IZombie
       survivor.decreaseHealth(30);
    }
    public String getIZombie(){
-      return "DemonZombie";
+      return "DemonZombie!";
    }
    
 }
